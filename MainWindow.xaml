@@ -1,0 +1,193 @@
+﻿<Window x:Class="TosisLab_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TosisLab_1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="245" Width="600" ResizeMode="NoResize" Background="#FF2D2D30">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <TabControl Grid.Row="0" Grid.ColumnSpan="2" Margin="6" Background="#FF28282B" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Равномерный закон" Name="TUniDistr" Cursor="Hand">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFC3C3C3" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Параметр А:" Grid.Row="0" Grid.Column="0" Padding="10" Foreground="#FFF1F1F1"/>
+                        <TextBox Name="TbAParam" Grid.Row="0" Grid.Column="1" Margin="5"/>
+                        <Label Content="Параметр B:" Grid.Row="1" Grid.Column="0" Padding="10" Foreground="#FFF1F1F1"/>
+                        <TextBox Name="TbBParam" Grid.Row="1" Grid.Column="1" Margin="5"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Экспотенциальный" Name="TExpDistr" Cursor="Hand">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFC3C3C3" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Параметр Lamda:" Margin="0,20" Foreground="#FFF1F1F1"/>
+                        <TextBox Name="TbLamdaParam" Margin="10" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" FontSize="16"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Нормальный" Name="TNormalDistr" Cursor="Hand">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFC3C3C3" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Параметр А:" Grid.Row="0" Grid.Column="0" Padding="10" Foreground="#FFF1F1F1"/>
+                        <TextBox Name="TbAlfaParam" Grid.Row="0" Grid.Column="1" Margin="5"/>
+                        <Label Content="Параметр Sigma:" Grid.Row="1" Grid.Column="0" Padding="10" Foreground="#FFF1F1F1"/>
+                        <TextBox Name="TbSigmParam" Grid.Row="1" Grid.Column="1" Margin="5"/>
+                        <RadioButton Name="Rb6" Grid.Row="0" Grid.Column="2" Content="6" Foreground="#FFF1F1F1" Margin="4" VerticalAlignment="Center" IsChecked="True"/>
+                        <RadioButton Name="Rb12" Grid.Row="0" Grid.Column="3" Content="12" Foreground="#FFF1F1F1" Margin="4" VerticalAlignment="Center"/>
+                        <RadioButton Name="Rb18" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Content="18" Foreground="#FFF1F1F1" Margin="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Треугольный" Name="TTrinDistr" Cursor="Hand">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFC3C3C3" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Параметр A:" Margin="0,20" Foreground="#FFF1F1F1"/>
+                        <TextBox Name="TbAlfaTrigParam" Margin="10" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" FontSize="16"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Дискретный" Name="TDiscDistr" Cursor="Hand">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFC3C3C3" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TabItem.Content>
+                    <ScrollViewer Name="c_dataGridScrollViewer"
+              Loaded="c_dataGridScrollViewer_Loaded"
+              VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Auto">
+                        <DataGrid x:Name="DiscTable"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              AutoGeneratedColumns="c_dataGrid_AutoGeneratedColumns"
+              HorizontalScrollBarVisibility="Hidden"
+              VerticalScrollBarVisibility="Hidden" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="LayoutTransform">
+                                        <Setter.Value>
+                                            <TransformGroup>
+                                                <RotateTransform Angle="90"/>
+                                            </TransformGroup>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.LayoutTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="-90"/>
+                                </TransformGroup>
+                            </DataGrid.LayoutTransform>
+                        </DataGrid>
+                    </ScrollViewer>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+        <Button Grid.Row="1" Grid.Column="1" Margin="8" Content="Генерировать" BorderBrush="#FFCAFFC4" BorderThickness="0.5"
+                Cursor="Hand" Name="BGenerate">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF24B72B" Direction="320" ShadowDepth="3"/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF009A4A" Offset="1"/>
+                    <GradientStop Color="#FF71FDE7"/>
+                    <GradientStop Color="#FF33FF78" Offset="0.694"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0">
+                <Label Content="Мт. пр." Margin="5,2,0,-3" Foreground="#FFF1F1F1"/>
+                <TextBox Name="TbMtPr" Margin="5" Background="#FF333337" Foreground="#FFF1F1F1" IsReadOnly="True"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
+                <Label Content="Дт. пр." Margin="5,2,0,-3" Foreground="#FFF1F1F1"/>
+                <TextBox Name="TbDtPr" Margin="5" Background="#FF333337" Foreground="#FFF1F1F1" IsReadOnly="True"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
+                <Label Content="Мт. теор." Margin="5,2,0,-3" Foreground="#FFF1F1F1"/>
+                <TextBox Name="TbMtTr" Margin="5" Background="#FF333337" Foreground="#FFF1F1F1" IsReadOnly="True"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+                <Label Content="Дт. теор." Margin="5,2,0,-3" Foreground="#FFF1F1F1"/>
+                <TextBox Name="TbDtTr" Margin="5" Background="#FF333337" Foreground="#FFF1F1F1" IsReadOnly="True"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="2" Grid.RowSpan="1">
+                <Label Content="N" Margin="5,2,0,-3" Foreground="#FFF1F1F1"/>
+                <TextBox Name="TbN" Margin="5" Background="#FF333337" Foreground="#FFF1F1F1"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
